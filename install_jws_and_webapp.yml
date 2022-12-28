@@ -4,7 +4,7 @@
   vars_files:
     - vars.yml
   collections:
-    - redhat.jws
+    - middleware_automation.jws
   pre_tasks:
 
     - ansible.builtin.assert:
@@ -21,7 +21,10 @@
 
     - name: "Wait for port 8080 to be available (ensure that JWS has finished restarting)"
       ansible.builtin.wait_for:
+        host: "{{ tomcat_listen_http_bind_address }}"
         port: 8080
+        delay: 60
+        timeout: 300
 
     - name: "Set path to result file: {{ path_to_result_file }}"
       ansible.builtin.set_fact:

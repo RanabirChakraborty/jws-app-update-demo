@@ -20,7 +20,7 @@
       - tc_home is defined
       - tc_home.stat is defined
       - tc_home.stat.exists
-      - tc_home.stat.isdir 
+      - tc_home.stat.isdir
     quiet: true
 
 - name: Deploy the demo app

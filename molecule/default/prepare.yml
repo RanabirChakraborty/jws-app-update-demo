@@ -21,3 +21,8 @@
       loop:
         - "{{ down_server }}/webserver/5.6.0/jws-5.6.0-application-server.zip"
         - "{{ down_server }}/webserver/5.6.0/jws-5.6.0-application-server-RHEL8-x86_64.zip"
+
+    - name: Create demo app path
+      file:
+        path: "{{ tomcat_home }}/webapps"
+        state: directory
